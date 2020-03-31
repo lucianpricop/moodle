@@ -228,7 +228,7 @@ class postgres_sql_generator extends sql_generator {
         $newseqname = $this->getTableName($newt) . '_' . $xmldb_field->getName() . '_seq';
 
         // Rename de sequence
-        $results[] = 'ALTER TABLE ' . $oldseqname . ' RENAME TO ' . $newseqname;
+        $results[] = 'ALTER TABLE IF EXISTS ' . $oldseqname . ' RENAME TO ' . $newseqname;
 
         return $results;
     }
